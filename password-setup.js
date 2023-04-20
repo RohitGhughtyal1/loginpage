@@ -1,7 +1,5 @@
 const passport = require('passport');
 
-const GoogleStrategy = require('passport-google-oauth2').Strategy;
-
 passport.serializeUser(function(user, done) {
   done(null, user);
 });
@@ -11,6 +9,7 @@ passport.deserializeUser(function(user, done) {
 });
 
 
+const GoogleStrategy = require('passport-google-oauth2').Strategy;
 
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
@@ -20,6 +19,7 @@ passport.use(new GoogleStrategy({
   },
   function(request, accessToken, refreshToken, profile, done) {
     // ...
+
     console.log(profile);
     return(null, profile);
   }
