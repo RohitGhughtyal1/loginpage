@@ -1,29 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Profile Page</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+
 </head>
+
 <body>
 
   <!-- Top Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Profile Page</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+      </ul>
+    </div>
   </nav>
+  
+  <h1>Profile</h1>
+
 
   <!-- Profile Info -->
   <div class="container my-4">
     <div class="row">
       <div class="col-md-4">
-        <img src="https://via.placeholder.com/150" alt="Profile Picture" class="img-thumbnail">
+        <img src="<%= req.user.photos[0].value %>"  alt="Profile Picture" class="img-thumbnail">
       </div>
       <div class="col-md-8">
-        <h1>John Doe</h1>
-        <p>Email: john.doe@gmail.com</p>
-        <p>Location: New York, NY</p>
-        <p>Bio: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla scelerisque lectus in erat pulvinar dapibus. Sed rhoncus, ex eget venenatis varius, lorem tortor congue ex, quis interdum odio sapien eget turpis. </p>
+
+        <p>User Name: <%= req.user.displayName %>
+        </p>
+
+        <p>User Email: <%= req.user.emails[0].value %>
+        </p>
+        <p>User ID: <%= req.user.id %>
+        </p>
+
       </div>
+
     </div>
   </div>
 
@@ -33,4 +56,5 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 </body>
+
 </html>

@@ -1,0 +1,32 @@
+{
+  id: '116914600814685491628',
+  displayName: 'Rohit Ghughtyal',
+  name: { familyName: 'Ghughtyal', givenName: 'Rohit' },
+  emails: [ { value: 'rohitghughtyal96@gmail.com', verified: true } ],
+  photos: [
+    {
+      value: 'https://lh3.googleusercontent.com/a/AGNmyxZawt6FhrdaysYGOz6E9XE8eF3gKbgxvDjYnjMylA=s96-c'
+    }
+  ],
+  provider: 'google',
+  _raw: '{\n' +
+    '  "sub": "116914600814685491628",\n' +
+    '  "name": "Rohit Ghughtyal",\n' +
+    '  "given_name": "Rohit",\n' +
+    '  "family_name": "Ghughtyal",\n' +
+    '  "picture": "https://lh3.googleusercontent.com/a/AGNmyxZawt6FhrdaysYGOz6E9XE8eF3gKbgxvDjYnjMylA\\u003ds96-c",\n' +
+    '  "email": "rohitghughtyal96@gmail.com",\n' +
+    '  "email_verified": true,\n' +
+    '  "locale": "en"\n' +
+    '}',
+  _json: {
+    sub: '116914600814685491628',
+    name: 'Rohit Ghughtyal',
+    given_name: 'Rohit',
+    family_name: 'Ghughtyal',
+    picture: 'https://lh3.googleusercontent.com/a/AGNmyxZawt6FhrdaysYGOz6E9XE8eF3gKbgxvDjYnjMylA=s96-c',
+    email: 'rohitghughtyal96@gmail.com',
+    email_verified: true,
+    locale: 'en'
+  }
+}
