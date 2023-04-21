@@ -11,10 +11,10 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.use(session({
-    secret: 'your_secret_key_here',
+    secret: '12-your-secret-key',
     resave: false,
     saveUninitialized: false
-}));
+  }));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -27,6 +27,16 @@ passport.deserializeUser(function (user, done) {
     done(null, user);
 });
 
+function checkLoggedIn(req, res, next) {
+    if (req.session && req.session.user) {
+      // User is logged in, so call the next middleware function
+    //   next();
+    } else {
+      // User is not logged in, so redirect to the login page
+      res.redirect('/');
+    }
+  }
+  
 
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
@@ -47,13 +57,12 @@ app.get('/', (req, res) => {
     res.render("pages/index");
 });
 
-app.get('/profile', (req, res) => {
-    // res.send("Logged In");
+app.get('/profile' ,(req, res) => {
     // console.log(req.user);
-    // console.log("hi");
-    // res.send(req.user.displayName);
-
-    res.render("pages/profile.ejs", {req: req});
+    if(req.user)
+        res.render("pages/profile.ejs", {req: req});
+    else
+        res.redirect('/');
 });
 
 
@@ -67,19 +76,19 @@ app.get('/google/callback', passport.authenticate('google', { failureRedirect: '
     }
 );
 
-app.get('/logout', (req, res) => {
-    req.session = null;
-
-    req.logout(function (err) {
-        if (err) {
-            console.log(err);
-        }
-        res.redirect('/');
+app.get('/logout', function(req, res){
+    req.logout(function(){
+      res.redirect('/');
     });
+  });
 
-    // req.logout();
-    // res.redirect('/');
-});
+
+// app.get('/logout', (req, res) => {
+//     req.session = null;
+
+//     req.logout();
+//     res.redirect('/');
+// });
 
 
 
