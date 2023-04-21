@@ -19,7 +19,10 @@ app.use(passport.session());
 
 // Define the endpoint
 app.get('/', (req, res) => {
-    res.render("pages/index");
+    if(req.user)
+        res.redirect('/profile')
+    else
+        res.render("pages/index");
 });
 
 app.get('/profile' ,(req, res) => {
